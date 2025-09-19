@@ -234,12 +234,11 @@ function initSmoothScroll() {
 function renderServices() {
   const servicesGrid = document.getElementById('servicesGrid');
   if (!servicesGrid) return;
-  
   servicesGrid.innerHTML = SITE_DATA.services.map(service => `
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="service-card">
         <div class="service-icon">
-          <i class="${service.icon}"></i>
+          <i class="bi ${service.icon}"></i>
         </div>
         <h4>${service.title}</h4>
         <p class="text-light mb-3">${service.description}</p>

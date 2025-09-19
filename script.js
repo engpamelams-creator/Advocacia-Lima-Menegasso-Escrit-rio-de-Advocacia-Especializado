@@ -3,16 +3,16 @@
 // ========================================
 const SITE_DATA = {
   contact: {
-    phone: '5511994194529',
-    email: 'cidamenegasso.77gmail.com  ',
+    phone: '5511999887766',
+    email: 'contato@limamenegasso.adv.br',
     address: 'Rua Augusta, 1230 - Conjunto 45, São Paulo - SP',
     hours: 'Segunda a Sexta: 8h às 18h | Sábados: 9h às 13h',
     whatsappMessage: 'Olá! Gostaria de agendar uma consulta jurídica.'
   },
   
   social: {
-    whatsapp: 'https://wa.me/5511994194529',
-    instagram: 'https://www.instagram.com/lima.menegasso?igsh=dWZubTJ2MzVpbmpw',
+    whatsapp: 'https://wa.me/5511999887766',
+    instagram: 'https://instagram.com/limamenegasso',
     facebook: 'https://facebook.com/limamenegassoadvocacia',
     linkedin: 'https://linkedin.com/company/lima-menegasso'
   },
@@ -33,7 +33,7 @@ const SITE_DATA = {
       icon: 'bi-heart',
       description: 'Orientação em questões familiares sensíveis',
       items: [
-        'Divórcio e Dissolução de União Estável',
+        'Divórcio e separação',
         'Guarda e pensão alimentícia',
         'Inventário e partilha'
       ]
@@ -234,11 +234,12 @@ function initSmoothScroll() {
 function renderServices() {
   const servicesGrid = document.getElementById('servicesGrid');
   if (!servicesGrid) return;
+  
   servicesGrid.innerHTML = SITE_DATA.services.map(service => `
     <div class="col-lg-3 col-md-6 mb-4">
       <div class="service-card">
         <div class="service-icon">
-          <i class="bi ${service.icon}"></i>
+          <i class="${service.icon}"></i>
         </div>
         <h4>${service.title}</h4>
         <p class="text-light mb-3">${service.description}</p>
@@ -315,7 +316,7 @@ function initContactForm() {
 
 *Nome:* ${name}
 *E-mail:* ${email}
-*Telefone:* ${phone}
+${phone ? `*Telefone:* ${phone}` : ''}
 
 *Mensagem:*
 ${message}
@@ -599,3 +600,14 @@ window.addEventListener('unhandledrejection', function(e) {
   // Could send to analytics or error tracking service
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Seleciona todas as tags <img>
+  const imagens = document.querySelectorAll('img');
+
+  // Itera sobre a lista de imagens e adiciona um ouvinte de evento
+  imagens.forEach(imagem => {
+    imagem.addEventListener('click', (event) => {
+      alert(`Você clicou na imagem com o texto alternativo: "${event.target.alt}"`);
+    });
+  });
+});

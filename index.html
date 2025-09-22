@@ -562,6 +562,10 @@
               const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
               window.open(url, '_blank', 'noopener');
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+  renderServices();
+});
           </script>
         </div>
       </div>
@@ -669,3 +673,7 @@
   <script defer src="script.js"></script>
 </body>
 </html>
+
+<style>
+  #areas-atuacao.reveal { opacity: 1 !important; transform: none !important; }
+</style>

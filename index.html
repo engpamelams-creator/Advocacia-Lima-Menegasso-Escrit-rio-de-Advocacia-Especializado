@@ -347,6 +347,20 @@
       </div>
     </section>
 
+    <!-- Modal Lightbox para Zoom -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark">
+          <div class="modal-body p-0 position-relative">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            <div class="d-flex justify-content-center align-items-center" style="min-height:60vh;">
+              <img id="lightboxImage" src="" alt="Zoom da imagem" class="img-fluid rounded" style="max-height:80vh; cursor:zoom-in; transition:transform .3s;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- DIFERENCIAIS -->
     <section id="depoimentos" class="section section-dark py-5">
       <div class="container">

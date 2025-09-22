@@ -137,8 +137,12 @@ body{
   border:1px solid var(--c-line) !important; border-radius: var(--r-2)!important; overflow:hidden; background: transparent;
 }
 .accordion-button{
-  font-weight:700; font-family: var(--ff-head); font-size: var(--fs-0;
-  background:#fff; color:#111; padding: 1rem 1.25rem;
+  font-weight: 700;
+  font-family: var(--ff-head);
+  font-size: var(--fs-0);
+  background: #fff;
+  color: #111;
+  padding: 1rem 1.25rem;
 }
 .accordion-button:not(.collapsed){ background: var(--c-gold); color:#fff; }
 .accordion-body{ background:#fff; color:#111; }
@@ -1123,18 +1127,16 @@ body {
 }
 
 .accordion-button {
-  background: var(--color-white);
-  border: none;
-  font-family: var(--font-family-heading);
-  font-weight: 600;
-  font-size: var(--font-size-base);
-  color: var(--color-primary);
-  padding: var(--spacing-lg) var(--spacing-xl);
-  transition: all var(--transition-fast);
+  font-weight: 700;
+  font-family: var(--ff-head);
+  font-size: var(--fs-0);
+  background: #fff;
+  color: #111;
+  padding: 1rem 1.25rem;
 }
 
 .accordion-button:not(.collapsed) {
-  background: var(--color-gold);
+  background: var(--c-gold);
   color: var(--color-white);
 }
 

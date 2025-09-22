@@ -294,7 +294,7 @@
           <p class="lead">Conheça nossa estrutura e equipe</p>
         </div>
         <div class="row g-3" id="galleryGrid">
-          <!-- Dica: quando possível, forneça srcset/sizes e width/height reais para reduzir CLS -->
+          <!-- Todas as colunas devem ficar dentro deste .row -->
           <div class="col-md-4 mb-3">
             <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/1.jpg">
               <img src="img/1.jpg" alt="Foto 1" class="img-fluid rounded" loading="lazy" />
@@ -302,20 +302,20 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/2.jpg">
-              <img src="img/2.jpg" alt="Foto 2" class="img-fluid rounded" loading="lazy" />
+            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/troca4.jpg">
+              <img src="img/troca4.jpg" alt="Foto 2" class="img-fluid rounded" loading="lazy" />
               <div class="gallery-overlay"></div>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/3.jpg">
-              <img src="img/3.jpg" alt="Sala de Reuniões" class="img-fluid rounded" loading="lazy" />
+            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/troca1.jpg">
+              <img src="img/troca1.jpg" alt="Sala de Reuniões" class="img-fluid rounded" loading="lazy" />
               <div class="gallery-overlay"></div>
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/4.jpg">
-              <img src="img/4.jpg" alt="Atendimento ao Cliente" class="img-fluid rounded" loading="lazy" />
+            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/troca2.jpg">
+              <img src="img/troca2.jpg" alt="Atendimento ao Cliente" class="img-fluid rounded" loading="lazy" />
               <div class="gallery-overlay"></div>
             </div>
           </div>
@@ -326,14 +326,34 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/6.jpg">
-              <img src="img/6.jpg" alt="Recepção" class="img-fluid rounded" loading="lazy" />
+            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/troca5.jpg">
+              <img src="img/troca5.jpg" alt="Recepção" class="img-fluid rounded" loading="lazy" />
+              <div class="gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/troca7.jpg">
+              <img src="img/troca7.jpg" alt="Equipe de Advogados" class="img-fluid rounded" loading="lazy" />
               <div class="gallery-overlay"></div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Modal Lightbox para Zoom -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark">
+          <div class="modal-body p-0 position-relative">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            <div class="d-flex justify-content-center align-items-center" style="min-height:60vh;">
+              <img id="lightboxImage" src="" alt="Zoom da imagem" class="img-fluid rounded" style="max-height:80vh; cursor:zoom-in; transition:transform .3s;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- DIFERENCIAIS -->
     <section id="depoimentos" class="section section-dark py-5">
@@ -395,7 +415,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Qual o prazo médio para resolução dos casos?</button>
                 </h3>
                 <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">Processos administrativos podem levar de 3 a 6 meses; ações judiciais de 1 a 3 anos (pode variar). Mantemos você informado sobre cada etapa.</div>
+                  <div class="accordion-body">A estimativa para processos administrativos é de 3 a 6 meses, enquanto as ações judiciais podem durar entre 1 e 3 anos, dependendo do caso. Durante todo o percurso, mantemos você informado sobre cada etapa.</div>
                 </div>
               </div>
               <div class="accordion-item">
@@ -479,7 +499,7 @@
                 <div class="contact-details">
                   <h5 class="text-white">Horário de Atendimento</h5>
                   <p class="text-light mb-1">Segunda a Sexta: 9h às 18h</p>
-                  <p class="text-light">Sábados: 9h às 13h</p>
+
                 </div>
               </div>
             </div>
@@ -595,9 +615,33 @@
         <div class="col-lg-3">
           <h5 class="text-gold mb-3">Contato</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><i class="bi bi-telephone me-2 text-gold" aria-hidden="true"></i><a href="tel:+5511970447650" class="text-light-50 footer-link-item">(11) 97044-7650</a></li>
-            <li class="mb-2"><i class="bi bi-envelope me-2 text-gold" aria-hidden="true"></i><a href="mailto:cidamenegasso.77@gmail.com" class="text-light-50 footer-link-item">cidamenegasso.77@gmail.com</a></li>
-            <li class="mb-2"><i class="bi bi-geo-alt me-2 text-gold" aria-hidden="true"></i><span class="text-light-50">R. Itarirí, 4 - Vila Palmares, Santo André</span></li>
+            <li class="mb-3 d-flex align-items-center">
+              <span class="footer-icon bg-gold rounded-circle d-flex align-items-center justify-content-center me-3" style="width:38px;height:38px;">
+                <i class="bi bi-telephone text-dark fs-5" aria-hidden="true"></i>
+              </span>
+              <div>
+                <a href="tel:+5511970447650" class="text-light-50 footer-link-item d-block fw-semibold">(11) 97044-7650</a>
+                <a href="tel:+5511994194529" class="text-light-50 footer-link-item d-block fw-semibold">(11) 99419-4529</a>
+              </div>
+            </li>
+            <li class="mb-3 d-flex align-items-center">
+              <span class="footer-icon bg-gold rounded-circle d-flex align-items-center justify-content-center me-3" style="width:38px;height:38px;">
+                <i class="bi bi-envelope text-dark fs-5" aria-hidden="true"></i>
+              </span>
+              <div>
+                <a href="mailto:cidamenegasso.77@gmail.com" class="text-light-50 footer-link-item d-block fw-semibold">cidamenegasso.77@gmail.com</a>
+                <a href="mailto:marta_lima11@yahoo.com.br" class="text-light-50 footer-link-item d-block fw-semibold">marta_lima11@yahoo.com.br</a>
+              </div>
+            </li>
+            <li class="mb-3 d-flex align-items-center">
+              <span class="footer-icon bg-gold rounded-circle d-flex align-items-center justify-content-center me-3" style="width:38px;height:38px;">
+                <i class="bi bi-geo-alt text-dark fs-5" aria-hidden="true"></i>
+              </span>
+              <div>
+                <span class="text-light-50 fw-semibold d-block">R. Itarirí, 4 - Vila Palmares</span>
+                <span class="text-light-50 d-block">Santo André, SP</span>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -639,6 +683,42 @@
       const lightboxModal = document.getElementById('lightboxModal');
       if (lightboxModal) {
         lightboxModal.addEventListener('hidden.bs.modal', () => { lightboxImage.src = ''; });
+      }
+    });
+
+    // Script para zoom
+    document.addEventListener('DOMContentLoaded', () => {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightboxImage = document.getElementById('lightboxImage');
+      let zoomed = false;
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const imgSrc = item.getAttribute('data-image');
+          if (imgSrc && lightboxImage) {
+            lightboxImage.src = imgSrc;
+            lightboxImage.style.transform = 'scale(1)';
+            zoomed = false;
+          }
+        });
+      });
+
+      // Zoom ao clicar na imagem ampliada
+      lightboxImage.addEventListener('click', () => {
+        zoomed = !zoomed;
+        lightboxImage.style.transform = zoomed ? 'scale(2)' : 'scale(1)';
+        lightboxImage.style.cursor = zoomed ? 'zoom-out' : 'zoom-in';
+      });
+
+      // Reset zoom ao fechar modal
+      const lightboxModal = document.getElementById('lightboxModal');
+      if (lightboxModal) {
+        lightboxModal.addEventListener('hidden.bs.modal', () => {
+          lightboxImage.src = '';
+          lightboxImage.style.transform = 'scale(1)';
+          lightboxImage.style.cursor = 'zoom-in';
+          zoomed = false;
+        });
       }
     });
   </script>

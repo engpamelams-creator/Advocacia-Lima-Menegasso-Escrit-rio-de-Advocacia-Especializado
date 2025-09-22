@@ -131,7 +131,7 @@ function renderServices() {
 
   SITE_DATA.services.forEach(service => {
     const col = document.createElement('div');
-    col.className = 'col-lg-3 col-md-6 mb-4';
+    col.className = 'col-lg-3 col-md-6 col-12 mb-4'; // Adicionado col-12
     col.innerHTML = `
       <div class="service-card">
         <div class="service-icon"><i class="${service.icon}" aria-hidden="true"></i></div>
@@ -195,7 +195,7 @@ function initContactForm() {
 
 *Nome:* ${name}
 *E-mail:* ${email}
-${phone ? `*Telefone:* ${phone}` : ''}
+*Telefone:* ${phone}
 
 *Mensagem:*
 ${message}`.trim();
@@ -470,14 +470,3 @@ if ('serviceWorker' in navigator) {
 window.addEventListener('error', (e) => console.error('Uncaught error:', e.error || e.message));
 window.addEventListener('unhandledrejection', (e) => console.error('Unhandled promise rejection:', e.reason));
 
-// ========================================
-// EXEMPLO DIDÁTICO (clique em imagens)
-// ========================================
-document.addEventListener('DOMContentLoaded', () => {
-  $$('img[alt]').forEach(img => {
-    img.addEventListener('click', (ev) => {
-      const alt = ev.currentTarget.alt || '(sem alt)';
-      alert(`Você clicou na imagem: "${alt}"`);
-    }, { passive: true });
-  });
-});

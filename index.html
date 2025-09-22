@@ -696,7 +696,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       const galleryItems = document.querySelectorAll('.gallery-item');
       const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxModal = document.getElementById('lightboxModal');
       let zoomed = false;
+
+      // Instância do modal Bootstrap
+      const bsModal = new bootstrap.Modal(lightboxModal);
 
       galleryItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -704,7 +708,9 @@
           if (imgSrc && lightboxImage) {
             lightboxImage.src = imgSrc;
             lightboxImage.style.transform = 'scale(1)';
+            lightboxImage.style.cursor = 'zoom-in';
             zoomed = false;
+            bsModal.show(); // Abre o modal!
           }
         });
       });
@@ -717,15 +723,12 @@
       });
 
       // Reset zoom ao fechar modal
-      const lightboxModal = document.getElementById('lightboxModal');
-      if (lightboxModal) {
-        lightboxModal.addEventListener('hidden.bs.modal', () => {
-          lightboxImage.src = '';
-          lightboxImage.style.transform = 'scale(1)';
-          lightboxImage.style.cursor = 'zoom-in';
-          zoomed = false;
-        });
-      }
+      lightboxModal.addEventListener('hidden.bs.modal', () => {
+        lightboxImage.src = '';
+        lightboxImage.style.transform = 'scale(1)';
+        lightboxImage.style.cursor = 'zoom-in';
+        zoomed = false;
+      });
     });
   </script>
 

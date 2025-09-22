@@ -500,4 +500,146 @@ window.addEventListener('unhandledrejection', (e) => console.error('Unhandled pr
   document.addEventListener('DOMContentLoaded', renderServices);
 })();
 
+// ========================================
+// SERVICE CARDS RENDERIZAÇÃO (FIM DO ARQUIVO)
+// ========================================
+(function(){
+  // Garante que SITE_DATA exista
+  window.SITE_DATA = window.SITE_DATA || {};
+
+  // Se quiser, definir serviços aqui como fallback
+  if (!Array.isArray(window.SITE_DATA.services)) {
+    window.SITE_DATA.services = [
+      { title:'Direito Civil', icon:'bi-scale', description:'Soluções completas para questões cíveis', items:['Contratos e negociações','Responsabilidade civil','Direitos da personalidade'] },
+      { title:'Direito de Família', icon:'bi-heart', description:'Orientação em questões familiares sensíveis', items:['Divórcio e Dissolução de União Estável','Guarda e pensão alimentícia','Inventário e partilha'] },
+      { title:'Direito Trabalhista', icon:'bi-briefcase', description:'Defesa dos direitos trabalhistas', items:['Demissões irregulares','Assédio moral e sexual','Acordos trabalhistas'] },
+      { title:'Direito Empresarial', icon:'bi-building', description:'Consultoria jurídica para empresas', items:['Constituição de empresas','Contratos comerciais','Recuperação judicial'] },
+      { title:'Direito do Consumidor', icon:'bi-person-check', description:'Proteção dos direitos do consumidor', items:['Defeitos de produtos','Cobranças indevidas','Negativações irregulares'] },
+      { title:'Direito Imobiliário', icon:'bi-house', description:'Assessoria em transações imobiliárias', items:['Compra e venda de imóveis','Contratos de locação','Regularização fundiária'] },
+      { title:'LGPD & Compliance', icon:'bi-shield-check', description:'Adequação à legislação de proteção de dados', items:['Adequação à LGPD','Políticas de privacidade','Compliance corporativo'] },
+      { title:'Consultoria Jurídica', icon:'bi-chat-square-text', description:'Orientação jurídica preventiva', items:['Pareceres técnicos','Consultoria preventiva','Due diligence'] }
+    ];
+  }
+
+  // Função de render
+  function renderServices() {
+    const grid = document.getElementById('servicesGrid');
+    if (!grid) {
+      console.warn('servicesGrid não encontrado');
+      return;
+    }
+    const services = window.SITE_DATA.services;
+    if (!services || services.length === 0) {
+      grid.innerHTML = '<div class="col-12 text-center text-light-50">Sem serviços cadastrados.</div>';
+      return;
+    }
+
+    // Limpar o conteúdo antigo
+    grid.innerHTML = '';
+
+    services.forEach(s => {
+      // monta o item do card
+      const col = document.createElement('div');
+      col.className = 'col-12 col-sm-6 col-lg-3';
+
+      // monta o card
+      const card = document.createElement('div');
+      card.className = 'card h-100 bg-dark text-white border-0 shadow-sm';
+      card.style.background = 'linear-gradient(180deg, #171717 0%, #1d1d1d 100%)'; 
+      card.style.border = '1px solid #2a2a2a';
+      card.style.borderRadius = '12px';
+      card.style.padding = '18px';
+      card.style.display = 'flex';
+      card.style.flexDirection = 'column';
+      card.style.transition = 'transform .18s, box-shadow .18s, border-color .18s';
+
+      card.addEventListener('mouseover', () => {
+        card.style.transform = 'translateY(-3px)';
+        card.style.boxShadow = '0 10px 24px rgba(0,0,0,.45)';
+        card.style.borderColor = '#353535';
+      });
+      card.addEventListener('mouseout', () => {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+        card.style.borderColor = '#2a2a2a';
+      });
+
+      // Ícone
+      const iconDiv = document.createElement('div');
+      iconDiv.className = 'icon mb-3';
+      iconDiv.style.width = '50px';
+      iconDiv.style.height = '50px';
+      iconDiv.style.borderRadius = '50%';
+      iconDiv.style.background = 'radial-gradient(circle at 30% 30%, #ffcf33, #d6a800 70%, #8a6b00 100%)';
+      iconDiv.style.display = 'flex';
+      iconDiv.style.alignItems = 'center';
+      iconDiv.style.justifyContent = 'center';
+      iconDiv.style.flex = '0 0 auto';
+      iconDiv.style.marginBottom = '10px';
+      iconDiv.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,.25), 0 3px 10px rgba(0,0,0,.25)';
+      
+      const iconEl = document.createElement('i');
+      iconEl.className = `bi ${s.icon}`; 
+      iconEl.setAttribute('aria-hidden','true');
+      iconEl.style.fontSize = '24px';
+      iconEl.style.color = '#ffcf33';
+      iconDiv.appendChild(iconEl);
+
+      // Título
+      const h3 = document.createElement('h3');
+      h3.innerText = s.title;
+      h3.style.margin = '0 0 6px';
+      h3.style.fontSize = '16px';
+      h3.style.fontWeight = '700';
+      h3.style.color = '#ffcf33';
+
+      // Descrição
+      const p = document.createElement('p');
+      p.innerText = s.description;
+      p.style.margin = '0 0 8px';
+      p.style.color = '#d7d7d7';
+      p.style.fontSize = '13px';
+
+      // Lista de itens
+      const ul = document.createElement('ul');
+      ul.className = 'bullets';
+      ul.style.listStyle = 'none';
+      ul.style.padding = '0';
+      ul.style.margin = '4px 0 0';
+      s.items.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = item;
+        li.style.position = 'relative';
+        li.style.paddingLeft = '14px';
+        li.style.margin = '7px 0';
+        li.style.color = '#d9d9d9';
+        li.style.fontSize = '12.5px';
+        // marcador personalizado
+        const before = document.createElement('span');
+        before.style.position = 'absolute';
+        before.style.left = '0';
+        before.style.top = '0.5em';
+        before.style.width = '6px';
+        before.style.height = '6px';
+        before.style.background = '#d6a800';
+        before.style.borderRadius = '1px';
+        before.style.display = 'inline-block';
+        li.appendChild(before);
+        li.appendChild(document.createTextNode(item));
+        ul.appendChild(li);
+      });
+
+      card.appendChild(iconDiv);
+      card.appendChild(h3);
+      card.appendChild(p);
+      card.appendChild(ul);
+
+      col.appendChild(card);
+      grid.appendChild(col);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', renderServices);
+})();
+
 

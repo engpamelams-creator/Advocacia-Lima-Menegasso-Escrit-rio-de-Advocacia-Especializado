@@ -1046,6 +1046,21 @@ body {
   transform: scale(1.1);
 }
 
+/* ========== GALLERY IMG CUSTOM SIZE ========== */
+.gallery-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  background: #eee;
+  display: block;
+}
+@media (max-width: 767px) {
+  .gallery-img {
+    height: 180px;
+  }
+}
+
 /* ========================================
    TESTIMONIALS SECTION
 ======================================== */

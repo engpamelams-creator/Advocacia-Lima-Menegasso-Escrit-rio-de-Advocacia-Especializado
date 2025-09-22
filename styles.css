@@ -1,3 +1,226 @@
+/* ========== 1) BASE & TOKENS ========== */
+:root{
+  /* Cores principais (use color-mix() se quiser variações dinâmicas) */
+  --c-bg: #0b0b0b;
+  --c-surface: #141414;
+  --c-gold: #c7a23a;
+  --c-gold-2: #9a7b22;
+  --c-text: #f5f5f5;
+  --c-text-2: rgba(255,255,255,.72);
+  --c-line: rgba(255,255,255,.08);
+
+  /* Tipografia fluida */
+  --ff-head: "Playfair Display", serif;
+  --ff-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-0: clamp(.875rem, .82rem + .2vw, 1rem);
+  --fs-1: clamp(1rem, .9rem + .6vw, 1.25rem);
+  --fs-2: clamp(1.25rem, 1.1rem + 1vw, 1.75rem);
+  --fs-3: clamp(1.5rem, 1.3rem + 1.4vw, 2.25rem);
+  --fs-4: clamp(2rem, 1.4rem + 3vw, 3rem);
+
+  /* Espaços / raios / sombras */
+  --sp-1: .5rem; --sp-2: .75rem; --sp-3: 1rem; --sp-4: 1.5rem; --sp-5: 2rem; --sp-6: 3rem;
+  --r-1: 10px; --r-2: 14px; --r-3: 20px;
+  --sh-1: 0 6px 24px rgba(0,0,0,.25);
+
+  /* Transições */
+  --t-fast: 180ms ease;
+  --t: 260ms ease;
+
+  /* Atalhos */
+  --gold-grad: linear-gradient(135deg, var(--c-gold) 0%, var(--c-gold-2) 100%);
+}
+
+/* Deixe o UA colaborar com dark scrollbars/inputs */
+:root { color-scheme: dark; } /* ou defina <meta name="color-scheme" content="dark light"> no HTML */
+html, body { height: 100%; }
+html { scroll-behavior:smooth; scroll-padding-top: 80px; }
+@media (prefers-reduced-motion: reduce){
+  html { scroll-behavior:auto; }
+  * { animation: none!important; transition: none!important; }
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin:0;
+  font: 400 var(--fs-0)/1.6 var(--ff-body);
+  color: var(--c-text);
+  background:
+    radial-gradient(800px 200px at 50% -80px, rgba(255,255,255,.06), transparent),
+    var(--c-bg);
+}
+
+/* Utilitários rápidos */
+.text-gold{ color: var(--c-gold)!important; }
+.text-soft{ color: var(--c-text-2)!important; }
+.section{ position:relative; overflow:hidden; padding: clamp(2rem, 4vw, 4rem) 0; }
+.container{ width:min(1200px, 90vw); margin-inline:auto; }
+
+/* ========== 2) NAVBAR TECH GOLD ========== */
+.futuristic-gold-nav{
+  background: rgba(13,13,13,.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--c-line);
+}
+.futuristic-gold-nav .logo-img{ height: clamp(40px, 5vw, 56px); transition: transform var(--t); }
+.futuristic-gold-nav .logo-img:hover{ transform: scale(1.04); }
+.futuristic-gold-nav .nav-link{
+  color: var(--c-text-2)!important; text-transform: uppercase; letter-spacing:.08em;
+  padding: .75rem 1rem; position: relative; transition: color var(--t);
+}
+.futuristic-gold-nav .nav-link::before{
+  content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
+  background: var(--c-gold); box-shadow:0 0 10px var(--c-gold);
+  transition: width var(--t);
+}
+.futuristic-gold-nav .nav-link:hover{ color:#fff!important; }
+.futuristic-gold-nav .nav-link:hover::before,
+.futuristic-gold-nav .nav-link.active::before{ width:100%; }
+
+/* ========== 3) HERO — usa dvh para mobile UI chrome ==========
+   dvh acompanha a altura dinâmica do viewport (evita corte no mobile). */
+.hero-section, .carousel-item{
+  min-height: 100dvh; /* melhor que 100vh em mobile moderno */
+} /* dvh: unidades de viewport dinâmico. */
+.carousel-bg{ inset:0; position:absolute; background: center/cover no-repeat; z-index:1; }
+.carousel-overlay{ position:absolute; inset:0; z-index:2;
+  background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(0,0,0,.35));
+}
+.carousel-content{
+  position:relative; z-index:3; min-height: 100dvh;
+  display:grid; place-items:center; text-align:center; padding-inline: clamp(1rem, 3vw, 2rem);
+}
+.carousel-content h1{ font: 700 var(--fs-4)/1.1 var(--ff-head); text-shadow: 0 8px 24px rgba(0,0,0,.4); max-width: 22ch; }
+.carousel-content .lead{ font-size: var(--fs-1); color: var(--c-text-2); max-width: 60ch; }
+
+.hero-buttons{ display:flex; flex-wrap:wrap; gap: var(--sp-3); justify-content:center; margin-top: var(--sp-4); }
+.btn{ border-radius: var(--r-3); padding: .9rem 1.4rem; font-weight:600; letter-spacing:.02em; position:relative; overflow:hidden; transition: transform var(--t), box-shadow var(--t); }
+.btn::before{ content:""; position:absolute; inset:0; translate:-120% 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+  transition: translate .6s ease;
+}
+.btn:hover::before{ translate:120% 0; }
+.btn-gold{ background: var(--gold-grad); color:#fff; box-shadow: var(--sh-1); }
+.btn-gold:hover{ transform: translateY(-2px); }
+.btn-outline-light{ border:2px solid #fff; color:#fff; background: transparent; }
+.btn-outline-light:hover{ background:#fff; color:#000; }
+
+/* ========== 4) CARDS (credenciais/diferenciais/serviços) ========== */
+.card-neo{
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-2);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  backdrop-filter: blur(6px);
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+}
+.card-neo:hover{ transform: translateY(-6px); border-color: rgba(199,162,58,.35); box-shadow: 0 18px 50px rgba(0,0,0,.35); }
+.card-neo h3, .card-neo h5{ color: var(--c-gold); }
+
+/* Ícones circulares */
+.icon-badge{
+  width:72px; aspect-ratio:1; display:grid; place-items:center; border-radius:50%;
+  background: var(--gold-grad); color:#fff; box-shadow: var(--sh-1); margin-bottom: var(--sp-3);
+}
+
+/* ========== 5) GALERIA com aspect-ratio para grid consistente ========== */
+.gallery-item{
+  position:relative; border-radius: var(--r-2); overflow:hidden; cursor:pointer;
+  height:auto; aspect-ratio: 4 / 3; /* mantém proporção consistente */
+  background:#111;
+}
+.gallery-item > img{ width:100%; height:100%; object-fit:cover; transition: transform .35s ease; display:block; }
+.gallery-item:hover > img{ transform: scale(1.06); }
+
+/* ========== 6) FAQ (accordion Bootstrap) ========== */
+.accordion-item{
+  border:1px solid var(--c-line) !important; border-radius: var(--r-2)!important; overflow:hidden; background: transparent;
+}
+.accordion-button{
+  font-weight:700; font-family: var(--ff-head); font-size: var(--fs-0);
+  background:#fff; color:#111; padding: 1rem 1.25rem;
+}
+.accordion-button:not(.collapsed){ background: var(--c-gold); color:#fff; }
+.accordion-body{ background:#fff; color:#111; }
+
+/* ========== 7) CONTATO ==========
+   Inputs com foco acessível + contrastes bons */
+.contact-form .form-control{
+  background: rgba(255,255,255,.07); color:#fff;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius: var(--r-1);
+  transition: border-color var(--t), box-shadow var(--t), background var(--t);
+}
+.contact-form .form-control::placeholder{ color: rgba(255,255,255,.5); }
+.contact-form .form-control:focus{
+  background: rgba(255,255,255,.12);
+  border-color: var(--c-gold);
+  box-shadow: 0 0 0 .2rem color-mix(in oklab, var(--c-gold) 25%, transparent);
+}
+
+/* ========== 8) MAPA & FOTOS ==========
+   iframe responsivo com proporção estável */
+#mapa .layout{ display:grid; gap: clamp(.75rem, 2vw, 1.25rem); grid-template-columns: 1fr; }
+@container mapa (min-width: 860px){ /* container query (quando suportado) */
+  #mapa .layout{ grid-template-columns: 5fr 7fr; }
+}
+#mapa .photos{ display:grid; gap: clamp(.6rem, 1.6vw, 1rem); grid-template-rows: 1fr 1fr; }
+#mapa .photo{ aspect-ratio: 4 / 3; border-radius: var(--r-2); overflow:hidden; background:#111; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+#mapa .photo > img{ width:100%; height:100%; object-fit:cover; display:block; }
+#mapa .map-embed{ width:100%; aspect-ratio: 16 / 10; border:0; border-radius: var(--r-2); box-shadow: 0 12px 36px rgba(0,0,0,.28); }
+@media (max-width: 575px){ #mapa .map-embed{ aspect-ratio: 4 / 3; } }
+
+/* Ative o container para a seção (para usar @container acima) */
+#mapa { container-type: inline-size; container-name: mapa; } /* container queries */
+
+/* ========== 9) FLOAT ACTION BUTTONS ==========
+   (mantendo sua UI, com pequenos ajustes) */
+.floating-buttons{ position: fixed; right: clamp(12px, 2vw, 24px); bottom: clamp(12px, 2vw, 24px); display:flex; flex-direction:column; gap: 12px; z-index: 1050; }
+.btn-float{
+  width:56px; aspect-ratio:1; display:grid; place-items:center; border-radius:50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform var(--t), filter var(--t);
+}
+.btn-float:hover{ transform: translateY(-2px); filter: brightness(1.06); }
+.tooltip-text{ display:none; } /* mobile-first: sem tooltip; pode reativar em >=md */
+
+/* ========== 10) RESPONSIVO GERAL ========== */
+@media (max-width: 992px){
+  .hero-buttons{ flex-direction:column; }
+  .btn{ width: 100%; max-width: 320px; }
+}
+@media (max-width: 768px){
+  .gallery-item{ aspect-ratio: 16 / 10; } /* mais alta no celular */
+}
+
+/* ========== 11) ACESSIBILIDADE ==========
+   Menos movimento quando preferido  */
+@media (prefers-reduced-motion: reduce){
+  .gallery-item > img{ transition:none; }
+}
+
+/* ========== 12) RODAPÉ ==========
+   simples, com brilho sutil */
+.footer{
+  background: radial-gradient(1200px 200px at 50% -120px, rgba(255,255,255,.06), transparent), #0d0d0d !important;
+  border-top:1px solid rgba(255,215,0,.18);
+}
+.footer a{ color: var(--c-text-2); transition: color var(--t); }
+.footer a:hover{ color: #fff; }
+
+/* ========== 13) AJUSTES BOOTSTRAP ==========
+   Evita colapso feio do menu em mobile */
+@media (max-width: 991.98px){
+  .futuristic-gold-nav .navbar-collapse{
+    background: rgba(3,3,3,.95);
+    border-top:1px solid var(--c-line);
+    padding: .75rem 1rem; border-radius: 0 0 var(--r-2) var(--r-2);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+}
+
+/* ========== 14) HELPER PARA IMAGENS LAZY (fade-in) ========== */
+img[loading="lazy"]{ opacity:0; transition: opacity .4s ease; }
+img.is-loaded{ opacity:1; }
 /* ========================================
    CSS VARIABLES & ROOT CONFIGURATION
 ======================================== */
@@ -63,6 +286,22 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+}
+
+/* Suporte nativo a scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respeita preferências de movimento do usuário */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .is-loading,
+  .is-loaded {
+    transition: none !important;
+  }
 }
 
 body {

@@ -1,316 +1,195 @@
 // ========================================
-// SITE DATA CONFIGURATION
+// SITE DATA CONFIGURATION (imutável)
 // ========================================
-const SITE_DATA = {
+const SITE_DATA = Object.freeze({
   contact: {
-    phone: '5511999887766',
+    phone: "+5511994194529", // formato E.164 para wa.me
     email: 'contato@limamenegasso.adv.br',
     address: 'Rua Augusta, 1230 - Conjunto 45, São Paulo - SP',
     hours: 'Segunda a Sexta: 8h às 18h | Sábados: 9h às 13h',
     whatsappMessage: 'Olá! Gostaria de agendar uma consulta jurídica.'
   },
-  
   social: {
-    whatsapp: 'https://wa.me/5511999887766',
-    instagram: 'https://instagram.com/limamenegasso',
+    whatsapp: 'https://wa.me/5511994194529?text=Ol%C3%A1%2C%20tudo%20bem%2C%20seja%20bem-vindo.%20Logo%20iremos%20te%20atender',
+    instagram: 'https://www.instagram.com/lima.menegasso?igsh=dWZubTJ2MzVpbmpw',
     facebook: 'https://facebook.com/limamenegassoadvocacia',
     linkedin: 'https://linkedin.com/company/lima-menegasso'
   },
-  
   services: [
-    {
-      title: 'Direito Civil',
-      icon: 'bi-scale',
-      description: 'Soluções completas para questões cíveis',
-      items: [
-        'Contratos e negociações',
-        'Responsabilidade civil',
-        'Direitos da personalidade'
-      ]
-    },
-    {
-      title: 'Direito de Família',
-      icon: 'bi-heart',
-      description: 'Orientação em questões familiares sensíveis',
-      items: [
-        'Divórcio e separação',
-        'Guarda e pensão alimentícia',
-        'Inventário e partilha'
-      ]
-    },
-    {
-      title: 'Direito Trabalhista',
-      icon: 'bi-briefcase',
-      description: 'Defesa dos direitos trabalhistas',
-      items: [
-        'Demissões irregulares',
-        'Assédio moral e sexual',
-        'Acordos trabalhistas'
-      ]
-    },
-    {
-      title: 'Direito Empresarial',
-      icon: 'bi-building',
-      description: 'Consultoria jurídica para empresas',
-      items: [
-        'Constituição de empresas',
-        'Contratos comerciais',
-        'Recuperação judicial'
-      ]
-    },
-    {
-      title: 'Direito do Consumidor',
-      icon: 'bi-person-check',
-      description: 'Proteção dos direitos do consumidor',
-      items: [
-        'Defeitos de produtos',
-        'Cobranças indevidas',
-        'Negativações irregulares'
-      ]
-    },
-    {
-      title: 'Direito Imobiliário',
-      icon: 'bi-house',
-      description: 'Assessoria em transações imobiliárias',
-      items: [
-        'Compra e venda de imóveis',
-        'Contratos de locação',
-        'Regularização fundiária'
-      ]
-    },
-    {
-      title: 'LGPD & Compliance',
-      icon: 'bi-shield-check',
-      description: 'Adequação à legislação de proteção de dados',
-      items: [
-        'Adequação à LGPD',
-        'Políticas de privacidade',
-        'Compliance corporativo'
-      ]
-    },
-    {
-      title: 'Consultoria Jurídica',
-      icon: 'bi-chat-square-text',
-      description: 'Orientação jurídica preventiva',
-      items: [
-        'Pareceres técnicos',
-        'Consultoria preventiva',
-        'Due diligence'
-      ]
-    }
+    { title:'Direito Civil', icon:'bi-scale', description:'Soluções completas para questões cíveis', items:['Contratos e negociações','Responsabilidade civil','Direitos da personalidade'] },
+    { title:'Direito de Família', icon:'bi-heart', description:'Orientação em questões familiares sensíveis', items:['Divórcio e Dissolução de União Estável','Guarda e pensão alimentícia','Inventário e partilha'] },
+    { title:'Direito Trabalhista', icon:'bi-briefcase', description:'Defesa dos direitos trabalhistas', items:['Demissões irregulares','Assédio moral e sexual','Acordos trabalhistas'] },
+    { title:'Direito Empresarial', icon:'bi-building', description:'Consultoria jurídica para empresas', items:['Constituição de empresas','Contratos comerciais','Recuperação judicial'] },
+    { title:'Direito do Consumidor', icon:'bi-person-check', description:'Proteção dos direitos do consumidor', items:['Defeitos de produtos','Cobranças indevidas','Negativações irregulares'] },
+    { title:'Direito Imobiliário', icon:'bi-house', description:'Assessoria em transações imobiliárias', items:['Compra e venda de imóveis','Contratos de locação','Regularização fundiária'] },
+    { title:'LGPD & Compliance', icon:'bi-shield-check', description:'Adequação à legislação de proteção de dados', items:['Adequação à LGPD','Políticas de privacidade','Compliance corporativo'] },
+    { title:'Consultoria Jurídica', icon:'bi-chat-square-text', description:'Orientação jurídica preventiva', items:['Pareceres técnicos','Consultoria preventiva','Due diligence'] }
   ],
-  
   testimonials: [
-    {
-      name: 'Maria Silva',
-      text: 'Profissionais excepcionais! Resolveram meu caso de divórcio com muita competência e sensibilidade. Recomendo fortemente.',
-      stars: 5,
-      avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?w=100&h=100&fit=crop&auto=compress'
-    },
-    {
-      name: 'João Santos',
-      text: 'Excelente atendimento na questão trabalhista. Conseguiram todos os direitos que eu tinha. Muito profissionais e éticos.',
-      stars: 5,
-      avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=100&h=100&fit=crop&auto=compress'
-    },
-    {
-      name: 'Ana Costa',
-      text: 'Atendimento personalizado e resultado excelente no meu caso empresarial. Equipe muito preparada e atualizada.',
-      stars: 5,
-      avatar: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?w=100&h=100&fit=crop&auto=compress'
-    },
-    {
-      name: 'Carlos Oliveira',
-      text: 'Consultoria jurídica de alta qualidade. Muito satisfeito com o atendimento e os resultados obtidos em meu processo.',
-      stars: 5,
-      avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?w=100&h=100&fit=crop&auto=compress'
-    }
+    { name:'Maria Silva', text:'Profissionais excepcionais! Resolveram meu caso de divórcio com muita competência e sensibilidade. Recomendo fortemente.', stars:5, avatar:'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?w=100&h=100&fit=crop&auto=compress' },
+    { name:'João Santos', text:'Excelente atendimento na questão trabalhista. Conseguiram todos os direitos que eu tinha. Muito profissionais e éticos.', stars:5, avatar:'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=100&h=100&fit=crop&auto=compress' },
+    { name:'Ana Costa', text:'Atendimento personalizado e resultado excelente no meu caso empresarial. Equipe muito preparada e atualizada.', stars:5, avatar:'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?w=100&h=100&fit=crop&auto=compress' },
+    { name:'Carlos Oliveira', text:'Consultoria jurídica de alta qualidade. Muito satisfeito com o atendimento e os resultados obtidos em meu processo.', stars:5, avatar:'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?w=100&h=100&fit=crop&auto=compress' }
   ]
-};
+});
 
 // ========================================
-// DOM ELEMENTS
+// DOM HOOKS
 // ========================================
-const navbar = document.getElementById('mainNav');
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-const sections = document.querySelectorAll('section[id]');
-const contactForm = document.getElementById('contactForm');
-const phoneInput = document.getElementById('phone');
-const lightboxModal = document.getElementById('lightboxModal');
-const lightboxImage = document.getElementById('lightboxImage');
+const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+const navbar = $('#mainNav');
+const navLinks = $$('.navbar-nav .nav-link');
+const sections = $$('section[id]');
+const contactForm = $('#contactForm');
+const phoneInput = $('#phone');
+const lightboxModal = $('#lightboxModal');
+const lightboxImage = $('#lightboxImage');
 
 // ========================================
-// UTILITY FUNCTIONS
+// UTILS
 // ========================================
+const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false; // MDN/web.dev
 
-// Phone mask formatting
 function formatPhone(value) {
   const numbers = value.replace(/\D/g, '');
-  if (numbers.length <= 10) {
-    return numbers.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
-  }
+  if (numbers.length <= 10) return numbers.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
   return numbers.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
 }
 
-// Email validation
 function isValidEmail(email) {
+  // Deixe o <input type="email"> validar primeiro; isto é uma camada extra
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-// Smooth scroll with offset
 function smoothScrollTo(target, offset = 80) {
-  const element = document.querySelector(target);
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - offset;
-    
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
+  const el = typeof target === 'string' ? $(target) : target;
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  const behavior = prefersReducedMotion ? 'instant' : 'smooth'; // respeita preferências
+  window.scrollTo({ top, behavior }); // MDN scrollTo
 }
 
-// Generate WhatsApp link
 function generateWhatsAppLink(message = SITE_DATA.contact.whatsappMessage) {
+  // wa.me guiado pela doc oficial
   return `https://wa.me/${SITE_DATA.contact.phone}?text=${encodeURIComponent(message)}`;
 }
 
-// ========================================
-// NAVBAR FUNCTIONALITY
-// ========================================
+// rAF scheduler para scroll handlers
+const rafScheduler = (fn) => {
+  let ticking = false;
+  return function (...args) {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        fn.apply(this, args);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+};
 
-// Header shrink on scroll
+// ========================================
+// NAVBAR / NAVEGAÇÃO
+// ========================================
 function handleNavbarShrink() {
-  if (window.scrollY > 100) {
-    navbar.classList.add('shrink');
-  } else {
-    navbar.classList.remove('shrink');
-  }
+  if (!navbar) return;
+  navbar.classList.toggle('shrink', window.scrollY > 100);
 }
 
-// Active section highlighting
-function updateActiveNavLink() {
-  let current = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    const sectionHeight = section.offsetHeight;
-    
-    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-      current = section.getAttribute('id');
-    }
-  });
-  
+function updateActiveNavLinkById(id) {
   navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
+    const matches = link.getAttribute('href') === `#${id}`;
+    link.classList.toggle('active', matches);
+    if (matches) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
   });
 }
 
-// Navigation link smooth scroll
 function initSmoothScroll() {
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = this.getAttribute('href');
-      smoothScrollTo(target);
-      
-      // Close mobile menu if open
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      if (navbarCollapse.classList.contains('show')) {
-        navbarCollapse.classList.remove('show');
-      }
-    });
-  });
+  // Delegação global (evita múltiplos listeners)
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]:not([data-bs-toggle])');
+    if (!anchor) return;
+    const target = anchor.getAttribute('href');
+    e.preventDefault();
+    smoothScrollTo(target);
+
+    const navbarCollapse = $('.navbar-collapse.show');
+    navbarCollapse?.classList.remove('show');
+  }, { passive: false });
 }
 
 // ========================================
-// SERVICES SECTION
+// SERVICES / TESTIMONIALS
 // ========================================
 function renderServices() {
-  const servicesGrid = document.getElementById('servicesGrid');
-  if (!servicesGrid) return;
-  
-  servicesGrid.innerHTML = SITE_DATA.services.map(service => `
-    <div class="col-lg-3 col-md-6 mb-4">
+  const grid = $('#servicesGrid');
+  if (!grid) return;
+  const frag = document.createDocumentFragment();
+
+  SITE_DATA.services.forEach(service => {
+    const col = document.createElement('div');
+    col.className = 'col-lg-3 col-md-6 mb-4';
+    col.innerHTML = `
       <div class="service-card">
-        <div class="service-icon">
-          <i class="${service.icon}"></i>
-        </div>
+        <div class="service-icon"><i class="${service.icon}" aria-hidden="true"></i></div>
         <h4>${service.title}</h4>
         <p class="text-light mb-3">${service.description}</p>
         <ul class="list-unstyled">
-          ${service.items.map(item => `<li>${item}</li>`).join('')}
+          ${service.items.map(i => `<li>${i}</li>`).join('')}
         </ul>
-      </div>
-    </div>
-  `).join('');
+      </div>`;
+    frag.appendChild(col);
+  });
+  grid.replaceChildren(frag);
 }
 
-// ========================================
-// TESTIMONIALS SECTION
-// ========================================
 function renderTestimonials() {
-  const testimonialsGrid = document.getElementById('testimonialsGrid');
-  if (!testimonialsGrid) return;
-  
-  testimonialsGrid.innerHTML = SITE_DATA.testimonials.map(testimonial => `
-    <div class="col-lg-6 mb-4">
+  const grid = $('#testimonialsGrid');
+  if (!grid) return;
+  const frag = document.createDocumentFragment();
+
+  SITE_DATA.testimonials.forEach(t => {
+    const col = document.createElement('div');
+    col.className = 'col-lg-6 mb-4';
+    col.innerHTML = `
       <div class="testimonial-card">
         <div class="d-flex align-items-center mb-3">
-          <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar me-3">
+          <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar me-3" width="64" height="64" loading="lazy">
           <div>
-            <h5 class="testimonial-author mb-1">${testimonial.name}</h5>
-            <div class="testimonial-stars">
-              ${'★'.repeat(testimonial.stars)}
-            </div>
+            <h5 class="testimonial-author mb-1">${t.name}</h5>
+            <div class="testimonial-stars" aria-label="${t.stars} de 5 estrelas" role="img">${'★'.repeat(t.stars)}</div>
           </div>
         </div>
-        <p class="testimonial-text">"${testimonial.text}"</p>
-      </div>
-    </div>
-  `).join('');
+        <p class="testimonial-text">"${t.text}"</p>
+      </div>`;
+    frag.appendChild(col);
+  });
+  grid.replaceChildren(frag);
 }
 
 // ========================================
-// CONTACT FORM
+// FORM CONTATO
 // ========================================
 function initContactForm() {
   if (!contactForm) return;
-  
-  // Phone input masking
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function(e) {
-      e.target.value = formatPhone(e.target.value);
-    });
-  }
-  
-  // Form submission
-  contactForm.addEventListener('submit', function(e) {
+
+  // Melhor teclado no mobile (garanta no HTML: inputmode="tel")
+  phoneInput?.addEventListener('input', (e) => { e.target.value = formatPhone(e.target.value); });
+
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
-    
-    // Basic validation
-    if (!name || !email || !message) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
-      return;
-    }
-    
-    if (!isValidEmail(email)) {
-      alert('Por favor, insira um e-mail válido.');
-      return;
-    }
-    
-    // Create WhatsApp message
+    const data = new FormData(contactForm);
+    const name = data.get('name')?.toString().trim();
+    const email = data.get('email')?.toString().trim();
+    const phone = data.get('phone')?.toString().trim();
+    const message = data.get('message')?.toString().trim();
+
+    if (!name || !email || !message) return alert('Por favor, preencha todos os campos obrigatórios.');
+    if (!isValidEmail(email)) return alert('Por favor, insira um e-mail válido.');
+
     const whatsappMessage = `
 *Nova mensagem do site*
 
@@ -319,295 +198,286 @@ function initContactForm() {
 ${phone ? `*Telefone:* ${phone}` : ''}
 
 *Mensagem:*
-${message}
-    `.trim();
-    
-    // Open WhatsApp
-    window.open(generateWhatsAppLink(whatsappMessage), '_blank');
-    
-    // Reset form
-    this.reset();
+${message}`.trim();
+
+    const numeroWhatsApp = '5511994194529';
+    const texto = `Olá! Gostaria de uma consulta.
+
+*Nome:* ${name}
+*E-mail:* ${email}
+*Telefone:* ${phone}
+
+*Mensagem:* ${message}`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank', 'noopener');
+
+    contactForm.reset();
     alert('Mensagem enviada! Em breve entraremos em contato.');
   });
 }
 
 // ========================================
-// GALLERY LIGHTBOX
+// LIGHTBOX (básico)
 // ========================================
 function initLightbox() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  
-  galleryItems.forEach(item => {
-    item.addEventListener('click', function() {
-      const imageSrc = this.getAttribute('data-image');
-      if (lightboxImage && imageSrc) {
-        lightboxImage.src = imageSrc;
-      }
-    });
+  const items = $$('.gallery-item');
+  if (!items.length || !lightboxImage) return;
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-image');
+      if (src) lightboxImage.src = src;
+    }, { passive: true });
   });
 }
 
 // ========================================
-// WHATSAPP INTEGRATION
+// WHATSAPP + SOCIAL
 // ========================================
 function initWhatsAppLinks() {
-  // Main CTA buttons
-  const whatsappCTA = document.getElementById('whatsappCTA');
-  const scheduleConsultation = document.getElementById('scheduleConsultation');
-  const whatsappFloat = document.getElementById('whatsappFloat');
-  const whatsappFooterLink = document.getElementById('whatsappFooterLink');
-  
-  // Set WhatsApp links
-  [whatsappCTA, scheduleConsultation, whatsappFloat, whatsappFooterLink].forEach(element => {
-    if (element) {
-      element.href = generateWhatsAppLink();
-      element.target = '_blank';
-      element.rel = 'noopener noreferrer';
-    }
+  const ids = ['whatsappCTA', 'scheduleConsultation', 'whatsappFloat', 'whatsappFooterLink'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.href = generateWhatsAppLink();
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
   });
-  
-  // Social media links
-  const socialLinks = {
+
+  const socialMap = {
     instagramFloat: SITE_DATA.social.instagram,
     instagramFooterLink: SITE_DATA.social.instagram,
     facebookLink: SITE_DATA.social.facebook,
     linkedinLink: SITE_DATA.social.linkedin
   };
-  
-  Object.entries(socialLinks).forEach(([id, url]) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.href = url;
-      element.target = '_blank';
-      element.rel = 'noopener noreferrer';
+  Object.entries(socialMap).forEach(([id, url]) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.href = url;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
     }
   });
 }
 
 // ========================================
-// INTERSECTION OBSERVER
+// INTERSECTION OBSERVER p/ navegação
 // ========================================
-function initIntersectionObserver() {
-  const observerOptions = {
-    root: null,
-    rootMargin: '-50px 0px -50px 0px',
-    threshold: 0.3
-  };
-  
-  const observer = new IntersectionObserver(function(entries) {
+function initSectionObserver() {
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const currentId = entry.target.getAttribute('id');
-        
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${currentId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
+      if (entry.isIntersecting) updateActiveNavLinkById(entry.target.id);
     });
-  }, observerOptions);
-  
-  sections.forEach(section => {
-    observer.observe(section);
+  }, {
+    root: null,
+    rootMargin: '0px 0px -60% 0px', // ativa link quando ~40% do sec. visível
+    threshold: 0.25
   });
+
+  sections.forEach(sec => io.observe(sec));
 }
 
 // ========================================
-// IMAGE LAZY LOADING
+// LAZY-LOADING de Imagens (sua versão melhorada)
 // ========================================
-function initImageLazyLoading() {
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  
-  if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.addEventListener('load', function() {
-            this.classList.add('loaded');
-          });
-          if (img.complete) {
-            img.classList.add('loaded');
-          }
-          imageObserver.unobserve(img);
-        }
+(function () {
+  function revealImage(img, classes) {
+    const picture = img.parentNode && img.parentNode.tagName === 'PICTURE' ? img.parentNode : null;
+    if (picture) {
+      picture.querySelectorAll('source[data-srcset]').forEach(s => {
+        s.srcset = s.dataset.srcset;
+        s.removeAttribute('data-srcset');
       });
-    });
-    
-    lazyImages.forEach(img => {
-      imageObserver.observe(img);
-    });
-  } else {
-    // Fallback for older browsers
-    lazyImages.forEach(img => {
-      img.classList.add('loaded');
-    });
+    }
+    // dica: quando usar width descriptors no srcset, defina sizes no <img> (MDN)
+    if (img.dataset.srcset) { img.srcset = img.dataset.srcset; img.removeAttribute('data-srcset'); }
+    if (img.dataset.src)    { img.src    = img.dataset.src;    img.removeAttribute('data-src'); }
+    if ('decoding' in img) img.decoding = 'async';
+
+    const onLoad = () => { img.classList.add(classes.loaded); img.classList.remove(classes.loading); cleanup(); };
+    const onError = () => { img.classList.add(classes.error);  img.classList.remove(classes.loading); cleanup(); };
+    const cleanup = () => { img.removeEventListener('load', onLoad); img.removeEventListener('error', onError); };
+
+    img.classList.add(classes.loading);
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add(classes.loaded);
+      img.classList.remove(classes.loading);
+    } else {
+      img.addEventListener('load', onLoad, { once: true });
+      img.addEventListener('error', onError, { once: true });
+    }
   }
-}
+
+  function revealBackground(el, classes) {
+    const bg = el.dataset.bg;
+    if (!bg) return;
+    el.classList.add(classes.loading);
+
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = () => { el.style.backgroundImage = `url("${bg}")`; el.classList.add(classes.loaded); el.classList.remove(classes.loading); el.removeAttribute('data-bg'); };
+    img.onerror = () => { el.classList.add(classes.error); el.classList.remove(classes.loading); };
+    img.src = bg;
+  }
+
+  function initImageLazyLoading({
+    selectorImgs = 'img[loading="lazy"], img[data-src], img[data-srcset]',
+    selectorBgs  = '[data-bg]',
+    root = null,
+    rootMargin = '200px 0px',
+    threshold = 0.01,
+    classes = { loading: 'is-loading', loaded: 'is-loaded', error: 'is-error' }
+  } = {}) {
+    const imgs = $$(selectorImgs);
+    const bgs  = $$(selectorBgs);
+
+    const onlyNative = 'loading' in HTMLImageElement.prototype &&
+                       imgs.every(img => !img.dataset.src && !img.dataset.srcset);
+
+    if (onlyNative && 'IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const img = entry.target;
+          if (!img.classList.contains(classes.loaded)) {
+            img.addEventListener('load', () => {
+              img.classList.add(classes.loaded);
+              img.classList.remove(classes.loading);
+            }, { once: true });
+            img.classList.add(classes.loading);
+            if (img.complete && img.naturalWidth > 0) {
+              img.classList.add(classes.loaded);
+              img.classList.remove(classes.loading);
+            }
+          }
+          obs.unobserve(img);
+        });
+      }, { root, rootMargin, threshold });
+
+      imgs.forEach(img => obs.observe(img));
+      // bgs seguem para observer abaixo
+    }
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          if (el.tagName === 'IMG') revealImage(el, classes);
+          else revealBackground(el, classes);
+          self.unobserve(el);
+        });
+      }, { root, rootMargin, threshold });
+
+      imgs.filter(img => img.dataset.src || img.dataset.srcset).forEach(img => io.observe(img));
+      bgs.forEach(bg => io.observe(bg));
+    } else {
+      imgs.forEach(img => (img.dataset.src || img.dataset.srcset) ? revealImage(img, classes) : img.classList.add(classes.loaded));
+      bgs.forEach(el => revealBackground(el, classes));
+    }
+  }
+
+  window.initImageLazyLoading = initImageLazyLoading;
+})();
 
 // ========================================
-// HERO CAROUSEL ENHANCEMENTS
+// HERO CTA (scroll suave)
 // ========================================
 function initHeroCarousel() {
-  // Add smooth scroll to hero CTA buttons
-  const heroCtaButtons = document.querySelectorAll('.hero-buttons a[href^="#"]');
-  
-  heroCtaButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      if (this.getAttribute('href').startsWith('#')) {
-        e.preventDefault();
-        const target = this.getAttribute('href');
-        smoothScrollTo(target);
-      }
-    });
+  $$('.hero-buttons a[href^="#"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScrollTo(btn.getAttribute('href'));
+    }, { passive: false });
   });
 }
 
 // ========================================
-// PERFORMANCE OPTIMIZATIONS
+// PERFORMANCE (listeners + rAF)
 // ========================================
-
-// Debounce function for scroll events
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Throttle function for frequent events
-function throttle(func, limit) {
-  let inThrottle;
-  return function() {
-    const args = arguments;
-    const context = this;
-    if (!inThrottle) {
-      func.apply(context, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
-}
+const onScroll = rafScheduler(() => {
+  handleNavbarShrink();
+  // fallback extra caso o IntersectionObserver não esteja disponível
+  if (!('IntersectionObserver' in window)) {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      const h = section.offsetHeight;
+      if (window.pageYOffset >= top && window.pageYOffset < top + h) current = section.id;
+    });
+    if (current) updateActiveNavLinkById(current);
+  }
+});
 
 // ========================================
-// EVENT LISTENERS
+// EVENTOS
 // ========================================
 function initEventListeners() {
-  // Scroll events (debounced for performance)
-  window.addEventListener('scroll', debounce(handleNavbarShrink, 10));
-  window.addEventListener('scroll', throttle(updateActiveNavLink, 100));
-  
-  // Resize events
-  window.addEventListener('resize', debounce(function() {
-    // Handle any responsive adjustments
-    updateActiveNavLink();
-  }, 250));
-  
-  // Prevent default for all anchor links starting with #
-  document.addEventListener('click', function(e) {
-    const target = e.target.closest('a[href^="#"]');
-    if (target && !target.hasAttribute('data-bs-toggle')) {
-      e.preventDefault();
-      const targetId = target.getAttribute('href');
-      smoothScrollTo(targetId);
-    }
-  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', rafScheduler(() => updateActiveNavLinkById(document.elementFromPoint?.(0, 100)?.closest?.('section[id]')?.id || '')), { passive: true });
 }
 
 // ========================================
-// INITIALIZATION
+// BOOTSTRAP / INICIALIZAÇÃO
 // ========================================
 function init() {
-  // Wait for DOM to be ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-    return;
-  }
-  
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init, { once: true }); return; }
+
   try {
-    // Initialize all components
     initSmoothScroll();
     initContactForm();
     initLightbox();
     initWhatsAppLinks();
-    initIntersectionObserver();
-    initImageLazyLoading();
+    initSectionObserver();
+    window.initImageLazyLoading?.(); // lazy
     initHeroCarousel();
     initEventListeners();
-    
-    // Render dynamic content
+
     renderServices();
     renderTestimonials();
-    
-    // Set initial active state
-    updateActiveNavLink();
-    
+
+    handleNavbarShrink();
+
     console.log('🎯 Lima & Menegasso website initialized successfully');
-    
-  } catch (error) {
-    console.error('❌ Error initializing website:', error);
+  } catch (err) {
+    console.error('❌ Error initializing website:', err);
   }
 }
-
-// ========================================
-// START THE APPLICATION
-// ========================================
 init();
 
 // ========================================
-// ADDITIONAL FEATURES
+// DEBUG / EXPOSIÇÃO CONTROLADA
 // ========================================
+window.LIMA_MENEGASSO = { SITE_DATA, smoothScrollTo, generateWhatsAppLink, formatPhone, isValidEmail };
 
-// Add to window object for external access (useful for debugging)
-window.LIMA_MENEGASSO = {
-  SITE_DATA,
-  smoothScrollTo,
-  generateWhatsAppLink,
-  formatPhone,
-  isValidEmail
-};
-
-// Service Worker registration (if needed in the future)
+// ========================================
+// SERVICE WORKER (pronto para uso futuro)
+// ========================================
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    // Uncomment when service worker is ready
+  window.addEventListener('load', () => {
+    // Descomente quando tiver /sw.js
     // navigator.serviceWorker.register('/sw.js')
-    //   .then(function(registration) {
-    //     console.log('SW registered: ', registration);
-    //   })
-    //   .catch(function(registrationError) {
-    //     console.log('SW registration failed: ', registrationError);
-    //   });
+    //   .then(reg => console.log('SW registered:', reg))
+    //   .catch(err => console.warn('SW registration failed:', err));
   });
 }
 
-// Error handling for uncaught errors
-window.addEventListener('error', function(e) {
-  console.error('Uncaught error:', e.error);
-  // Could send to analytics or error tracking service
-});
+// ========================================
+// LOGGING DE ERROS
+// ========================================
+window.addEventListener('error', (e) => console.error('Uncaught error:', e.error || e.message));
+window.addEventListener('unhandledrejection', (e) => console.error('Unhandled promise rejection:', e.reason));
 
-// Handle unhandled promise rejections
-window.addEventListener('unhandledrejection', function(e) {
-  console.error('Unhandled promise rejection:', e.reason);
-  // Could send to analytics or error tracking service
-});
-
+// ========================================
+// EXEMPLO DIDÁTICO (clique em imagens)
+// ========================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Seleciona todas as tags <img>
-  const imagens = document.querySelectorAll('img');
-
-  // Itera sobre a lista de imagens e adiciona um ouvinte de evento
-  imagens.forEach(imagem => {
-    imagem.addEventListener('click', (event) => {
-      alert(`Você clicou na imagem com o texto alternativo: "${event.target.alt}"`);
-    });
+  $$('img[alt]').forEach(img => {
+    img.addEventListener('click', (ev) => {
+      const alt = ev.currentTarget.alt || '(sem alt)';
+      alert(`Você clicou na imagem: "${alt}"`);
+    }, { passive: true });
   });
 });

@@ -1855,3 +1855,5 @@ img[loading="lazy"].loaded {
     padding-right: 1rem;
   }
 }
+
+#areas-atuacao.reveal { opacity: 1 !important; transform: none !important; }

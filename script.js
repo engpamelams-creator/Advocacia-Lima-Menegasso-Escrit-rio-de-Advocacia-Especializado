@@ -131,7 +131,7 @@ function renderServices() {
 
   SITE_DATA.services.forEach(service => {
     const col = document.createElement('div');
-    col.className = 'col-lg-3 col-md-6 col-12 mb-4'; // Adicionado col-12
+    col.className = 'col-lg-3 col-md-6 col-12 mb-4';
     col.innerHTML = `
       <div class="service-card">
         <div class="service-icon"><i class="${service.icon}" aria-hidden="true"></i></div>

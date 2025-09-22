@@ -137,7 +137,7 @@ body{
   border:1px solid var(--c-line) !important; border-radius: var(--r-2)!important; overflow:hidden; background: transparent;
 }
 .accordion-button{
-  font-weight:700; font-family: var(--ff-head); font-size: var(--fs-0);
+  font-weight:700; font-family: var(--ff-head); font-size: var(--fs-0;
   background:#fff; color:#111; padding: 1rem 1.25rem;
 }
 .accordion-button:not(.collapsed){ background: var(--c-gold); color:#fff; }

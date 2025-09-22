@@ -641,5 +641,42 @@ window.addEventListener('unhandledrejection', (e) => console.error('Unhandled pr
 
   document.addEventListener('DOMContentLoaded', renderServices);
 })();
+document.addEventListener('DOMContentLoaded', function() {
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxModal = document.getElementById('lightboxModal');
+  let zoomed = false;
+
+  // Instância do modal Bootstrap
+  const bsModal = new bootstrap.Modal(lightboxModal);
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const imgSrc = item.getAttribute('data-image');
+      if (imgSrc && lightboxImage) {
+        lightboxImage.src = imgSrc;
+        lightboxImage.style.transform = 'scale(1)';
+        lightboxImage.style.cursor = 'zoom-in';
+        zoomed = false;
+        bsModal.show();
+      }
+    });
+  });
+
+  // Zoom ao clicar na imagem ampliada
+  lightboxImage.addEventListener('click', function() {
+    zoomed = !zoomed;
+    lightboxImage.style.transform = zoomed ? 'scale(2)' : 'scale(1)';
+    lightboxImage.style.cursor = zoomed ? 'zoom-out' : 'zoom-in';
+  });
+
+  // Reset zoom ao fechar modal
+  lightboxModal.addEventListener('hidden.bs.modal', function() {
+    lightboxImage.src = '';
+    lightboxImage.style.transform = 'scale(1)';
+    lightboxImage.style.cursor = 'zoom-in';
+    zoomed = false;
+  });
+});
 
 

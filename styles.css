@@ -814,7 +814,7 @@ body {
   transition: all var(--transition-fast) ease-in-out;
   height: 100%;
   border: 1px solid rgba(255, 201, 10, 0.1);
-  color: var(--color-white); /* Texto dos cards em branco */
+  color: var(--color-white); /* Garante texto branco no card */
 }
 
 .credential-card:hover, 
@@ -886,7 +886,7 @@ body {
   aspect-ratio: 4 / 3;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(44,44,44,.13);
+  box-shadow: 0 2px 12px rgba(252, 249, 249, 0.13);
 }
 
 .sobre-galeria .thumb > img {
@@ -946,14 +946,15 @@ body {
    SERVICES SECTION
 ======================================== */
 .service-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(245, 243, 243, 0.05);
   border-radius: var(--border-radius);
   padding: var(--spacing-xl);
   height: 100%;
-  border: 1px solid rgba(199, 162, 58, 0.1);
+  border: 1px solid rgba(236, 189, 58, 0.1);
   transition: all var(--transition-fast);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  color: var(--color-white); /* Garante texto branco no card */
 }
 
 .service-card:hover {
@@ -1016,7 +1017,7 @@ body {
   border-radius: var(--border-radius);
   cursor: pointer;
   height: 250px;
-  background: #fff; /* Garante fundo branco se imagem não carregar */
+  background: #f7f5f5; /* Garante fundo branco se imagem não carregar */
 }
 
 .gallery-item img {

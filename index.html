@@ -277,7 +277,12 @@
           <h2 class="section-title text-white mb-3">Áreas de Atuação</h2>
           <p class="lead text-light">Oferecemos serviços especializados em diversas áreas do direito</p>
         </div>
-        <div class="row g-4 mb-5" id="servicesGrid"><!-- Populado via JS --></div>
+
+        <!-- O JS vai popular aqui -->
+        <div class="row g-4 mb-5" id="servicesGrid">
+          <div class="col-12 text-center text-light-50">Carregando serviços…</div>
+        </div>
+
         <div class="text-center">
           <a href="#" class="btn btn-gold btn-lg" id="scheduleConsultation">
             <i class="bi bi-calendar-plus me-2" aria-hidden="true"></i>Agendar Consulta
@@ -671,6 +676,20 @@
   <!-- Bootstrap Bundle -->
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script defer src="script.js"></script>
+
+  <script>
+  window.SITE_DATA = window.SITE_DATA || {};
+  window.SITE_DATA.services = [
+    { title:'Direito Civil', icon:'bi-scale', description:'Soluções completas para questões cíveis', items:['Contratos e negociações','Responsabilidade civil','Direitos da personalidade'] },
+    { title:'Direito de Família', icon:'bi-heart', description:'Orientação em questões familiares sensíveis', items:['Divórcio e Dissolução de União Estável','Guarda e pensão alimentícia','Inventário e partilha'] },
+    { title:'Direito Trabalhista', icon:'bi-briefcase', description:'Defesa dos direitos trabalhistas', items:['Demissões irregulares','Assédio moral e sexual','Acordos trabalhistas'] },
+    { title:'Direito Empresarial', icon:'bi-building', description:'Consultoria jurídica para empresas', items:['Constituição de empresas','Contratos comerciais','Recuperação judicial'] },
+    { title:'Direito do Consumidor', icon:'bi-person-check', description:'Proteção dos direitos do consumidor', items:['Defeitos de produtos','Cobranças indevidas','Negativações irregulares'] },
+    { title:'Direito Imobiliário', icon:'bi-house', description:'Assessoria em transações imobiliárias', items:['Compra e venda de imóveis','Contratos de locação','Regularização fundiária'] },
+    { title:'LGPD & Compliance', icon:'bi-shield-check', description:'Adequação à legislação de proteção de dados', items:['Adequação à LGPD','Políticas de privacidade','Compliance corporativo'] },
+    { title:'Consultoria Jurídica', icon:'bi-chat-square-text', description:'Orientação jurídica preventiva', items:['Pareceres técnicos','Consultoria preventiva','Due diligence'] }
+  ];
+</script>
 </body>
 </html>
 

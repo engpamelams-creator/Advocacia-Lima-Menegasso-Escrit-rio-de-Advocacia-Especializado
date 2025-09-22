@@ -447,6 +447,10 @@ function init() {
 }
 init();
 
+document.addEventListener('DOMContentLoaded', function() {
+  renderServices();
+});
+
 // ========================================
 // DEBUG / EXPOSIÇÃO CONTROLADA
 // ========================================

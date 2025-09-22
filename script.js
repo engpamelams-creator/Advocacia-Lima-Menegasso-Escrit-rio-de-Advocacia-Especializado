@@ -474,4 +474,30 @@ if ('serviceWorker' in navigator) {
 window.addEventListener('error', (e) => console.error('Uncaught error:', e.error || e.message));
 window.addEventListener('unhandledrejection', (e) => console.error('Unhandled promise rejection:', e.reason));
 
+// ========================================
+// SERVICE DATA RENDER (exposição controlada)
+// ========================================
+(function () {
+  window.SITE_DATA = window.SITE_DATA || {};
+  function renderServices() {
+    const grid = document.getElementById('servicesGrid');
+    if (!grid) return;
+    const services = window.SITE_DATA.services || [];
+    if (!Array.isArray(services) || services.length === 0) {
+      grid.innerHTML = '<div class="col-12 text-center text-light-50">Sem serviços cadastrados.</div>';
+      return;
+    }
+    grid.classList.add('grid');
+    grid.innerHTML = services.map(s => `
+      <article class="card">
+        <div class="icon"><i class="bi ${s.icon}" aria-hidden="true" style="font-size:18px"></i></div>
+        <h3>${s.title}</h3>
+        <p>${s.description}</p>
+        <ul class="bullets">${s.items.map(i => `<li>${i}</li>`).join('')}</ul>
+      </article>
+    `).join('');
+  }
+  document.addEventListener('DOMContentLoaded', renderServices);
+})();
+
 

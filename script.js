@@ -680,3 +680,48 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+// abaixo js do botão whats e insta
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.getElementById('whatsappToggle');
+  const menuOptions = document.getElementById('whatsappOptions');
+
+  // Função para alternar a visibilidade do menu
+  function toggleMenu() {
+    // Adiciona ou remove a classe 'active' para mostrar/esconder
+    menuOptions.classList.toggle('active');
+    
+    // Atualiza os atributos de acessibilidade
+    const isExpanded = menuOptions.classList.contains('active');
+    toggleButton.setAttribute('aria-expanded', isExpanded);
+    menuOptions.setAttribute('aria-hidden', !isExpanded);
+  }
+
+  // Adiciona o evento de clique ao botão principal do WhatsApp
+  toggleButton.addEventListener('click', toggleMenu);
+
+  // Fecha o menu se o usuário clicar fora dele
+  document.addEventListener('click', function(event) {
+    // Verifica se o clique não foi no botão de alternância e nem dentro do menu
+    const isClickInside = toggleButton.contains(event.target) || menuOptions.contains(event.target);
+
+    if (!isClickInside && menuOptions.classList.contains('active')) {
+      // Se clicou fora e o menu está aberto, fecha o menu
+      menuOptions.classList.remove('active');
+      toggleButton.setAttribute('aria-expanded', 'false');
+      menuOptions.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Fecha o menu após a seleção de uma opção
+  const options = menuOptions.querySelectorAll('.whatsapp-option');
+  options.forEach(option => {
+    option.addEventListener('click', function() {
+      // Fecha o menu após a seleção
+      menuOptions.classList.remove('active');
+      toggleButton.setAttribute('aria-expanded', 'false');
+      menuOptions.setAttribute('aria-hidden', 'true');
+    });
+  });
+});

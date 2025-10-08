@@ -98,26 +98,40 @@
 <body>
   <a class="visually-hidden-focusable" href="#conteudo-principal">Pular para o conteúdo</a>
 
-  <header id="topo" class="mb-0">
+  
+
+
+   <!-- BOTÃO DO WHATSAPP E INSTAGRAM -->
+ <header id="topo" class="mb-0">
   <div class="floating-buttons d-flex d-md-flex" aria-label="Ações rápidas">
-    <a href="https://wa.me/5511994194529?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20agendar%20uma%20consulta"
-       target="_blank" rel="noopener noreferrer"
-       class="btn-float whatsapp-float" id="whatsappFloat"
-       aria-label="Contato via WhatsApp">
+
+    <button class="btn-float whatsapp-float" id="whatsappToggle" aria-label="Contato via WhatsApp" aria-expanded="false" aria-controls="whatsappOptions">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
       <span class="tooltip-text">WhatsApp</span>
-    </a>
+    </button>
+
+    <div class="whatsapp-menu" id="whatsappOptions" aria-hidden="true">
+      <p class="menu-title">Falar com:</p>
+      <a href="https://wa.me/5511970447650?text=Ol%C3%A1%2C%20Dra.%20Marta.%20Gostaria%20de%20agendar%20uma%20consulta"
+        target="_blank" rel="noopener noreferrer" class="whatsapp-option">
+        Dra. Marta
+      </a>
+      <a href="https://wa.me/5511994194529?text=Ol%C3%A1%2C%20Dra.%20Cida.%20Gostaria%20de%20agendar%20uma%20consulta"
+        target="_blank" rel="noopener noreferrer" class="whatsapp-option">
+        Dra. Cida
+      </a>
+    </div>
 
     <a href="https://www.instagram.com/lima.menegasso?igsh=dWZubTJ2MzVpbmpw"
-       target="_blank" rel="noopener noreferrer"
-       class="btn-float instagram-float" id="instagramFloat"
-       aria-label="Siga no Instagram">
+      target="_blank" rel="noopener noreferrer"
+      class="btn-float instagram-float" id="instagramFloat"
+      aria-label="Siga no Instagram">
       <i class="bi bi-instagram" aria-hidden="true"></i>
       <span class="tooltip-text">Instagram</span>
     </a>
+
   </div>
 </header>
-  <header>
 
     <!-- NAV -->
     <nav class="navbar navbar-expand-lg navbar-dark futuristic-gold-nav" id="mainNav" aria-label="Principal">
@@ -419,7 +433,7 @@
       <div class="col-12 col-sm-6 col-lg-3">
         <article class="card service-card h-100">
           <div class="icon"><span>⚖️</span></div>
-          <h3>Direito Criminal</h3>
+          <h3>Direito &amp; Criminal</h3>
           <p class="description">Adequação à legislação de proteção de dados</p>
           <ul class="bullets">
            <li>Audiência de Custódia</li>
@@ -909,3 +923,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
   #areas-atuacao.reveal { opacity: 1 !important; transform: none !important; }
 </style>
+
+
+

@@ -1860,3 +1860,64 @@ img[loading="lazy"].loaded {
 }
 
 #areas-atuacao.reveal { opacity: 1 !important; transform: none !important; }
+
+
+
+
+/* CSS BOTÃO WHATSS E INSTAGRAM*/
+/* Estilos básicos para o menu flutuante (ajuste a posição conforme necessário) */
+.floating-buttons {
+  /* Exemplo de posicionamento (ajuste para o seu layout) */
+  position: fixed;
+  bottom: 20px; /* Distância da parte inferior */
+  right: 20px;  /* Distância da lateral direita */
+  z-index: 1000;
+  flex-direction: column; /* Coloca os botões em coluna */
+  align-items: flex-end;
+}
+
+/* Estilo do Menu de Opções */
+.whatsapp-menu {
+  /* Esconde o menu por padrão */
+  display: none;
+  /* Posicionamento e aparência */
+  position: absolute;
+  bottom: 70px; /* Ajusta para aparecer acima do botão principal do WhatsApp */
+  right: 0;
+  background-color: #fff; /* Fundo branco */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 180px; /* Largura do menu */
+  text-align: right;
+}
+
+/* Torna o menu visível quando a classe 'active' é adicionada */
+.whatsapp-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.whatsapp-menu .menu-title {
+  margin: 0 0 5px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* Estilo para as opções de contato */
+.whatsapp-option {
+  display: block;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: #25D366; /* Cor verde do WhatsApp */
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.whatsapp-option:hover {
+  background-color: #f0f0f0;
+}

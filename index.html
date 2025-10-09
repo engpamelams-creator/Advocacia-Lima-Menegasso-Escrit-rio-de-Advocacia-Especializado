@@ -102,30 +102,8 @@
 
 
    <!-- BOTÃO DO WHATSAPP E INSTAGRAM -->
-<header id="topo" class="mb-0">
-  <div class="floating-buttons" aria-label="Ações rápidas">
 
-    <button class="btn-float whatsapp-float" id="whatsappToggle" aria-label="Contato via WhatsApp" aria-expanded="false" aria-controls="whatsappOptions">
-      <i class="bi bi-whatsapp" aria-hidden="true"></i>
-      <span class="tooltip-text">WhatsApp</span>
-    </button>
-
-    <div class="whatsapp-menu" id="whatsappOptions" aria-hidden="true">
-      <p class="menu-title">Falar com:</p>
-      <a href="https://wa.me/5511970447650?text=Ol%C3%A1%2C%20Dra.%20Marta.%20Gostaria%20de%20agendar%20uma%20consulta"
-         target="_blank" rel="noopener noreferrer" class="whatsapp-option">Dra. Marta</a>
-      <a href="https://wa.me/5511994194529?text=Ol%C3%A1%2C%20Dra.%20Cida.%20Gostaria%20de%20agendar%20uma%20consulta"
-         target="_blank" rel="noopener noreferrer" class="whatsapp-option">Dra. Cida</a>
-    </div>
-
-    <a href="https://www.instagram.com/lima.menegasso?igsh=dWZubTJ2MzVpbmpw"
-       target="_blank" rel="noopener noreferrer"
-       class="btn-float instagram-float" id="instagramFloat" aria-label="Siga no Instagram">
-      <i class="bi bi-instagram" aria-hidden="true"></i>
-      <span class="tooltip-text">Instagram</span>
-    </a>
-
-  </div>
+  
 
   <nav class="navbar navbar-expand-lg navbar-dark futuristic-gold-nav" id="mainNav" aria-label="Principal">
     <div class="container">
@@ -276,6 +254,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- SERVIÇOS -->
 <section id="areas-atuacao" class="section section-dark py-5">
@@ -501,7 +480,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="img/troca5.jpg">
-              <img src="img/troca5.jpg" alt="Recepção" class="img-fluid rounded gallery-img" loading="lazy" />
+              <img src="img/cidaampli.jpg" alt="Recepção" class="img-fluid rounded gallery-img" loading="lazy" />
               <div class="gallery-overlay"></div>
             </div>
           </div>
@@ -649,12 +628,25 @@
     <section id="contato" class="section section-dark py-5">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title text-white mb-3">Contato</h2>
-          <p class="lead text-light">Entre em contato conosco para uma consulta</p>
+          <h2 class="section-title text-white mb-3">Fale Conosco</h2>
+          <p class="lead text-light"></p>
         </div>
         <div class="row g-4">
           <div class="col-lg-4">
             <div class="contact-info" aria-label="Informações de contato">
+              <!-- Instagram -->
+  <div class="contact-item">
+    <div class="contact-icon">
+      <a href="https://www.instagram.com/lima.menegasso/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lima & Menegasso">
+        <i class="bi bi-instagram text-gold" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="contact-details">
+      <h5 class="text-white">Instagram</h5>
+      <a href="https://www.instagram.com/lima.menegasso/" target="_blank" rel="noopener noreferrer" class="text-light">@lima.menegasso</a>
+    </div>
+  </div>
+              <!-- Telefone -->
               <div class="contact-item">
                 <div class="contact-icon"><i class="bi bi-telephone text-gold" aria-hidden="true"></i></div>
                 <div class="contact-details">
@@ -663,6 +655,7 @@
                   <a href="tel:+5511970447650" class="text-light">(11) 97044-7650</a>
                 </div>
               </div>
+              <!-- E-mail -->
               <div class="contact-item">
                 <div class="contact-icon"><i class="bi bi-envelope text-gold" aria-hidden="true"></i></div>
                 <div class="contact-details">
@@ -671,6 +664,7 @@
                   <a href="mailto:marta_lima11@yahoo.com.br" class="text-light">marta_lima11@yahoo.com.br</a>
                 </div>
               </div>
+              <!-- Endereço -->
               <div class="contact-item">
                 <div class="contact-icon"><i class="bi bi-geo-alt text-gold" aria-hidden="true"></i></div>
                 <div class="contact-details">
@@ -679,6 +673,7 @@
                   <p class="text-light">São Paulo - SP, 09061-800</p>
                 </div>
               </div>
+              <!-- Horário de Atendimento -->
               <div class="contact-item">
                 <div class="contact-icon"><i class="bi bi-clock text-gold" aria-hidden="true"></i></div>
                 <div class="contact-details">
@@ -691,40 +686,201 @@
           </div>
 
           <div class="col-lg-8">
-            <form class="contact-form" id="contactForm" aria-label="Formulário de contato">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo" required aria-required="true" />
-                    <label for="name"></label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required aria-required="true" />
-                    <label for="email"></label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telefone" inputmode="tel" autocomplete="tel" />
-                    <!-- FIX do label quebrado -->
-                    <label for="phone"></label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" id="message" name="message" placeholder="Mensagem" style="height: 120px;" required aria-required="true"></textarea>
-                    <label for="message"></label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-gold btn-lg">
-                    <i class="bi bi-send me-2" aria-hidden="true"></i>Enviar para WhatsApp
-                  </button>
-                </div>
-              </div>
-            </form>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Advocacia Lima & Menegasso</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ======================================== */
+        /* CSS COMBINADO */
+        /* ======================================== */
+        
+        /* Paleta de Cores e Tipografia Baseada em Advocacia Lima & Menegasso */
+        :root {
+            --c-bg: #0b0b0b; /* Fundo Escuro Principal */
+            --c-surface: #141414; /* Superfície de cards */
+            --c-gold: #c7a23a; /* Dourado Principal */
+            --c-gold-dark: #9a7b22; /* Dourado Escuro para Gradiente */
+            --c-text: #f5f5f5; /* Texto Claro */
+            --c-text-secondary: rgba(255, 255, 255, 0.72); 
+            --ff-head: "Playfair Display", serif;
+            --ff-body: "Inter", sans-serif;
+            --t-fast: 200ms ease;
+            --r-default: 12px;
+        }
+
+        /* Reset básico e estilos globais */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--ff-body);
+            background-color: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Estilos da Seção de Contato */
+        .section-dark {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .header-contato {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header-contato h1 {
+            font-family: var(--ff-head);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--c-gold);
+            margin-bottom: 1rem;
+        }
+
+        .header-contato p {
+            color: var(--c-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid de Botões do WhatsApp */
+        .whatsapp-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            border-radius: var(--r-default);
+            text-decoration: none;
+            transition: all var(--t-fast);
+            text-align: center;
+            border: 1px solid var(--c-surface);
+            background-color: var(--c-surface);
+            
+            /* Cores do WhatsApp para o ícone */
+            color: #25D366; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Efeito de Hover Dourado e WhatsApp */
+        .btn-whatsapp:hover {
+            transform: translateY(-5px);
+            border-color: var(--c-gold);
+            box-shadow: 0 8px 20px rgba(199, 162, 58, 0.3);
+            background: linear-gradient(145deg, var(--c-surface) 90%, var(--c-gold-dark));
+        }
+
+        .btn-whatsapp i {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            /* Mantém a cor original do WhatsApp */
+            color: #25D366; 
+        }
+
+        .btn-whatsapp .nome-advogada {
+            font-family: var(--ff-head);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--c-text); /* Nome em cor de destaque */
+        }
+
+        .btn-whatsapp .telefone {
+            font-size: 0.9rem;
+            color: var(--c-text-secondary);
+        }
+
+        /* Estilo para o aviso */
+        .aviso-atendimento {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--c-text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .header-contato h1 {
+                font-size: 2rem;
+            }
+            .whatsapp-buttons-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn-whatsapp {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="contato-whatsapp" class="section-dark">
+        <div class="container">
+            <div class="header-contato">
+                <h1></h1>
+                <p>Escolha a advogada com quem deseja falar para iniciar uma conversa imediata no WhatsApp. Estamos prontas para atendê-lo(a).</p>
+            </div>
+
+            <div class="whatsapp-buttons-grid">
+                
+                <a 
+                    href="https://wa.me/5511970447650?text=Ol%C3%A1%2C%20Dra.%20Marta.%20Gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica." 
+                    class="btn-whatsapp marta-lima"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="Falar com Dra. Marta Lima no WhatsApp">
+                    
+                    <i class="bi bi-whatsapp"></i> 
+                    <span class="nome-advogada">Dra. Marta Lima</span>
+                    <span class="telefone">(11) 97044-7650</span>
+                </a>
+
+                <a 
+                    href="https://wa.me/5511994194529?text=Ol%C3%A1%2C%20Dra.%20Cida.%20Gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica." 
+                    class="btn-whatsapp cida-menegasso"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="Falar com Dra. Cida Menegasso no WhatsApp">
+                    
+                    <i class="bi bi-whatsapp"></i> 
+                    <span class="nome-advogada">Dra. Cida Menegasso</span>
+                    <span class="telefone">(11) 99419-4529</span>
+                </a>
+
+            </div>
+            
+            <p class="aviso-atendimento">Atendimento jurídico online e presencial. Retornamos o contato em horário comercial.</p>
+        </div>
+    </section>
+
+</body>
+</html>
           </div>
 
           <script>
@@ -747,6 +903,8 @@
 });
           </script>
         </div>
+
+        
       </div>
     </section>
 

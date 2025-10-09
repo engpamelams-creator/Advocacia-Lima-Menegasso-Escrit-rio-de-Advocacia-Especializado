@@ -170,18 +170,24 @@ body{
 }
 
 .gallery-item > img,
-.gallery-img {
+.gallery-item .gallery-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* preenche o contêiner cortando as bordas se necessário */
+  max-width: none;              /* evita comportamento de scale inesperado */
+  object-fit: cover;            /* corta mantendo proporção */
+  object-position: center;      /* centraliza o crop */
   display: block;
-  transition: transform var(--transition-normal);
+  opacity: 1 !important;        /* garante visibilidade */
+  transition: transform var(--transition-slow), opacity .35s ease;
+  will-change: transform;
 }
 
-/* mantém o hover scale já existente sem quebrar o object-fit */
-.gallery-item:hover > img,
-.gallery-item:hover .gallery-img {
-  transform: scale(1.06);
+/* Ajustes responsivos: reduzir altura do container em telas pequenas */
+@media (max-width: 767.98px) {
+  .gallery-item { height: 180px; }
+}
+@media (max-width: 400px) {
+  .gallery-item { height: 140px; }
 }
 
 /* ========== 6) FAQ (accordion Bootstrap) ========== */
@@ -291,7 +297,7 @@ body{
 @media (max-width: 991.98px){
   .futuristic-gold-nav .navbar-collapse{
     background: rgba(3,3,3,.95);
-    border-top:1px solid var(--c-line);
+    border-top: 1px solid var(--c-line);
     padding: .75rem 1rem; border-radius: 0 0 var(--r-2) var(--r-2);
     box-shadow: 0 10px 30px rgba(0,0,0,.4);
   }
@@ -1094,12 +1100,12 @@ body {
   overflow: hidden;
   border-radius: var(--border-radius);
   cursor: pointer;
-  height: 250px;
+  height: 260px;
   background: #f7f5f5; /* Garante fundo branco se imagem não carregar */
 }
 
 .gallery-item img {
-  width: 100%;
+  width: 120%;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -1121,22 +1127,20 @@ body {
   transition: none;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
+
 
 /* ========== GALLERY IMG CUSTOM SIZE ========== */
 .gallery-img {
   width: 100%;
-  height: 260px;
+  height: 0px;
   object-fit: cover;
   object-position: center;
   background: #eee;
   display: block;
 }
-@media (max-width: 767px) {
+@media (max-width: 400px) {
   .gallery-img {
-    height: 180px;
+    height: 100px;
   }
 }
 
@@ -1933,89 +1937,82 @@ img[loading="lazy"].loaded {
 
 #areas-atuacao.reveal { opacity: 1 !important; transform: none !important; }
 
-
-
-
-/* CSS BOTÃO WHATSS E INSTAGRAM*/
-/* ...existing code... */
-
-/* ====== FLOAT ACTION BUTTONS (consolidado) ====== */
- /* CSS BOTÃO WHATS E INSTAGRAM */
-.floating-buttons {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;              /* importante */
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-end;
-  z-index: 1100;
+//* ======================================= */
+/* Estilo Base: Recria o fundo escuro visto na imagem */
+body {
+    background-color: #1a1a1a; /* Cinza bem escuro, quase preto */
+    color: #ffffff; /* Cor do texto (título) */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* botão circular */
-.btn-float {
-  display: inline-grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  box-shadow: 0 8px 26px rgba(0,0,0,.28);
-  transition: transform .2s ease, filter .2s ease;
-  cursor: pointer;
+/* Título */
+.gallery-section h1 {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 1.8rem;
+    font-weight: 500;
 }
 
-/* menu de opções (posicionado relativo ao container) */
-.whatsapp-menu {
-  display: none;              /* padrão: escondido */
-  position: absolute;
-  bottom: calc(56px + 12px);  /* acima do botão (ajusta se .btn-float mudar) */
-  right: 0;
-  min-width: 180px;
-  background: #fff;
-  color: #222;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.14);
-  padding: 8px;
-  text-align: right;
-  flex-direction: column;
-  pointer-events: auto;
+/* ======================================= */
+/* 1. CONTÊINER PAI (O Grid) */
+/* ======================================= */
+.gallery-grid {
+    /* Centraliza o bloco da galeria na tela */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px; /* Limite a largura para ficar elegante */
+    padding: 30px 15px 80px; 
+    
+    /* Configuração do layout de 3 colunas */
+    display: grid;
+    /* 3 colunas, com um tamanho mínimo de 250px para responsividade */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; /* Espaço entre os cards */
 }
 
-/* quando aberto */
-.whatsapp-menu.active {
-  display: flex;              /* consistente e permite coluna */
+/* ======================================= */
+/* 2. ITEM INDIVIDUAL (O Card) */
+/* ======================================= */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    
+    /* 💡 Proporção de retrato (3/4) para fotos de pessoas */
+    aspect-ratio: 3 / 4; 
+    
+    /* 💡 Cantos arredondados, como na imagem */
+    border-radius: 12px; 
+    
+    /* Garante que a imagem preencha o espaço */
+    height: 100%;
+    width: 100%;
 }
 
-/* título e opções */
-.whatsapp-menu .menu-title {
-  margin: 0 0 6px 0;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #eee;
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: #333;
+/* ======================================= */
+/* 3. IMAGEM */
+/* ======================================= */
+.gallery-item img {
+    width: 100%;
+    height: 100%; 
+    
+    /* Garante que a imagem preencha o contêiner sem ser distorcida */
+    object-fit: cover; 
+    object-position: center; 
+    display: block;
 }
 
-.whatsapp-option {
-  display: block;
-  padding: 8px 10px;
-  color: #25D366;
-  font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.whatsapp-option:hover,
-.whatsapp-option:focus {
-  background: #f5f5f5;
-  outline: none;
+/* ======================================= */
+/* 4. RESPONSIVIDADE (Ajuste para Mobile) */
+/* ======================================= */
+@media (max-width: 768px) {
+    /* No mobile, use 2 colunas e reduza o tamanho mínimo */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+        gap: 20px;
+    }
 }
 
-/* garantir visibilidade no mobile: remova qualquer display:none !important em media queries se quiser exibir */
-@media (max-width: 575.98px) {
-  .floating-buttons { bottom: 14px; right: 14px; }
-  .btn-float { width: 50px; height: 50px; }
-  /* se não quiser esconder no mobile, comente/remova o display:none !important abaixo */
-  /* .floating-buttons { display: none !important; } */
-}
 
-/* ...existing code... */

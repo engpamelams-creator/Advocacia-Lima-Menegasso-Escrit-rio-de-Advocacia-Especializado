@@ -95,11 +95,24 @@ body{
 
 .hero-buttons{ display:flex; flex-wrap:wrap; gap: var(--sp-3); justify-content:center; margin-top: var(--sp-4); }
 .btn{ border-radius: var(--r-3); padding: .9rem 1.4rem; font-weight:600; letter-spacing:.02em; position:relative; overflow:hidden; transition: transform var(--t), box-shadow var(--t); }
-.btn::before{ content:""; position:absolute; inset:0; translate:-120% 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
-  transition: translate .6s ease;
+.btn::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left var(--transition-slow);
+  /* usando transform para compatibilidade em animações */
+  transform: translateX(-100%);
+  will-change: transform;
 }
-.btn:hover::before{ translate:120% 0; }
+.btn:hover::before{
+  /* animação mais suave usando transform */
+  transform: translateX(100%);
+  left: auto; /* evita conflitos com left animado */
+}
 .btn-gold{ background: var(--gold-grad); color:#fff; box-shadow: var(--sh-1); }
 .btn-gold:hover{ transform: translateY(-2px); }
 .btn-outline-light{ border:2px solid #fff; color:#fff; background: transparent; }
@@ -134,14 +147,41 @@ body{
 
 /* desloca levemente a imagem para baixo dentro do card da galeria */
 .gallery-item--shift > img {
-  transform: translateY(8%); /* aumentar/reduzir (%) para mais/menos deslocamento */
-  transition: transform .4s ease;
+  transform: translateY(20%); /* ajuste aqui: maior valor desce mais */
+  transition: transform .6s ease;
   will-change: transform;
 }
 
 /* preserva o efeito ao passar o mouse (se já tiver hover que escala) */
 .gallery-item--shift:hover > img {
   transform: translateY(8%) scale(1.06);
+}
+
+/* ======= UNIFIED GALLERY SIZING (colocar dentro da seção GALLERY) =======
+   Garante que todos os itens tenham altura consistente e que a imagem
+   preencha completamente o contêiner sem distorcer.
+*/
+.gallery-item {
+  /* altura fixa (ajuste conforme necessário) */
+  height: 200px;
+  overflow: hidden;      /* evita que a imagem vaze do container */
+  position: relative;    /* necessário para overlays/posicionamento interno */
+  border-radius: var(--border-radius); /* mantém o estilo padrão */
+}
+
+.gallery-item > img,
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* preenche o contêiner cortando as bordas se necessário */
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+/* mantém o hover scale já existente sem quebrar o object-fit */
+.gallery-item:hover > img,
+.gallery-item:hover .gallery-img {
+  transform: scale(1.06);
 }
 
 /* ========== 6) FAQ (accordion Bootstrap) ========== */
@@ -585,8 +625,6 @@ body {
    NAVIGATION - VERSÃO TECH & GOLD (AJUSTADA)
 ======================================== */
 
-/* ... (Mantenha as variáveis e o estilo base) ... */
-
 /* .futuristic-gold-nav .navbar-brand { } -- removed empty rule set */
 
 /* Centraliza o conteúdo da navbar */
@@ -739,7 +777,8 @@ body {
 }
 
 .btn:hover::before {
-  left: 100%;
+  transform: translateX(100%);
+  left: auto; /* evita conflitos com left animado */
 }
 
 .btn-gold {

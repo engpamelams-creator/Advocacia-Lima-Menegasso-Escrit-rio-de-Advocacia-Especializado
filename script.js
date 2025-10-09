@@ -835,3 +835,61 @@ window.addEventListener('unhandledrejection', (e) => console.error('Unhandled pr
 
   document.addEventListener('DOMContentLoaded', renderServices);
 })();
+
+
+// ...existing code...
+(function initWhatsAppFloating() {
+  const onReady = () => {
+    const toggle = document.getElementById('whatsappToggle');
+    const menu = document.getElementById('whatsappOptions');
+    if (!toggle || !menu) return console.warn('WhatsApp floating: elementos não encontrados');
+
+    // Estado inicial
+    menu.classList.remove('active');
+    menu.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+
+    const openMenu = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const opened = menu.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      menu.setAttribute('aria-hidden', opened ? 'false' : 'true');
+      if (opened) menu.querySelector('a')?.focus();
+    };
+
+    toggle.addEventListener('click', openMenu);
+
+    // Fecha ao clicar fora
+    document.addEventListener('click', (ev) => {
+      if (toggle.contains(ev.target) || menu.contains(ev.target)) return;
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Fecha ao clicar em qualquer opção do menu
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    // Fecha com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        toggle.focus();
+      }
+    });
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', onReady);
+  else onReady();
+})();
